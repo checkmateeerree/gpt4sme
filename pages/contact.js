@@ -91,7 +91,7 @@ export default function ContactUs() {
               </FormControl>
               <FormControl id="email">
                 <Input type="email" placeholder="Your Email" onChange={handleEmailChange} required/>
-                <FormHelperText>We'll never share your email.</FormHelperText>
+                <FormHelperText>We&apos;ll never share your email.</FormHelperText>
               </FormControl>
               <FormControl id="message">
                 <Textarea placeholder="Your Message" onChange={handleMessageChange} required/>
