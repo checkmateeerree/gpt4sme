@@ -8,21 +8,7 @@ import {Flex, Heading, Text, VStack, HStack, Box, Wrap} from "@chakra-ui/layout"
 import {Button, useToast} from "@chakra-ui/react"
 import Link from 'next/link'
 function Index() {
-  const toast = useToast()
-
-  const createToast = (title, description, status) => {
-      toast({
-        title: title,
-        description: description,
-        status: status,
-        duration: 5000,
-        isClosable: true
-      })
-  }
-
-  const handleMentorRequest = () => {
-    createToast("Mentor request succeeded!", "Please check your email in the next 24 hours for an email from a mentor.", "success")
-  }
+  
   return (
     <>
       {true && (
