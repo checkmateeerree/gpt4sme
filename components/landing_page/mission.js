@@ -30,7 +30,7 @@ export default function Mission({
       minH="70vh"
       pt={12}
       pl={{md: 5, lg: "125px"}}
-      pr={0}
+      pr={3}
       mb={16}
       {...rest}
     >
@@ -83,8 +83,6 @@ Mission.propTypes = {
 Mission.defaultProps = {
   title: "Our mission",
   subtitle:
-    "This is our mission statement.",
-  image: "/svgs/Splendid reviews in background check.svg",
-  ctaText: "Learn More",
-  ctaLink: "/about"
+    "Empowering small and medium enterprises with GPT-powered solutions, our social enterprise agency aims to meet niche demands and provide effective services through a user-friendly website.",
+  image: "/svgs/mission_statement.svg",
 };

@@ -13,7 +13,7 @@ import {
   WrapItem
 } from "@chakra-ui/react";
 
-export default function WorkingWithStudents({
+export default function WorkWithBusinesses({
   title,
   subtitle,
   image,
@@ -25,12 +25,11 @@ export default function WorkingWithStudents({
     <Flex
       align="center"
       justify={{ base: "center", md: "space-around", xl: "space-between" }}
-      direction={{ base: "column", md: "row-reverse", lg: 'row-reverse' }}
+      direction={{ base: "column", md: "row" }}
       wrap="no-wrap"
       minH="70vh"
-      pt={4}
-      pl={{md: 5, lg: "125px"}}
-      pr={0}
+      pt={12}
+      px={8}
       mb={16}
       {...rest}
     >
@@ -72,7 +71,7 @@ export default function WorkingWithStudents({
   );
 }
 
-WorkingWithStudents.propTypes = {
+WorkWithBusinesses.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   image: PropTypes.string,
@@ -80,11 +79,9 @@ WorkingWithStudents.propTypes = {
   ctaLink: PropTypes.string
 };
 
-WorkingWithStudents.defaultProps = {
+WorkWithBusinesses.defaultProps = {
   title: "Working with businesses",
   subtitle:
-    "text to fill in.",
-  image: "/svgs/Mentor.svg",
-  ctaText: "Learn More",
-  ctaLink: "/about"
+    "We provide a comprehensive guidebook, engaging video tutorials, and personalized interactive guidance to help businesses effectively leverage AI-driven tools and achieve their objectives seamlessly.",
+  image: "/svgs/business.svg",
 };
