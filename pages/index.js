@@ -1,5 +1,5 @@
 import Hero from "../components/landing_page/hero";
-import SummerPrograms from "../components/landing_page/AI_Tools/AITools";
+import AITools from "../components/landing_page/AI_Tools/AITools";
 import Mission from "../components/landing_page/mission";
 import WorkingWithBusinesses from "../components/landing_page/workwithbusinesses";
 import CallToAction from "../components/landing_page/calltoaction";
@@ -14,7 +14,7 @@ function Index() {
       {true && (
           <>
             <Hero />
-            <SummerPrograms />
+            <AITools />
             <Mission />
             <WorkingWithBusinesses />
             <CallToAction />

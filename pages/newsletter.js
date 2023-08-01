@@ -1,4 +1,4 @@
-'use client'
+import React, { useState } from'react'
 
 import {
   Flex,
@@ -14,18 +14,50 @@ import {
 } from '@chakra-ui/react'
 
 export default function CardWithIllustration() {
+  const [email, setEmail] = useState('');
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+  const registerNewsLetter = async () => {
+    if(!validateEmail(email)){
+      alert('Please enter a valid email address');
+            return;
+    }
+    const response = await fetch('/api/subscribeUser', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email
+      })
+    });
+    const data = await response.json();
+    if (data.success){
+      alert('Thank you for subscribing to our newsletter!');
+      window.location = '/';
+    } else {
+      alert("There was an error subscribing to our newsletter. Please try again later or email us at gpt4sme@gmail.com to join.");
+    }
+  }
+
+
   return (
     <Flex
       minH={'50vh'}
       align={'center'}
       justify={'center'}
-      py={8}
+      py={3}
       bg={useColorModeValue('gray.50', 'gray.800')}>
       <Stack
         boxShadow={'2xl'}
         bg={useColorModeValue('white', 'gray.700')}
         rounded={'xl'}
-        p={10}
+        p={5}
         mb="75px"
         spacing={8}
         align={'center'}>
@@ -53,6 +85,7 @@ export default function CardWithIllustration() {
               bg: useColorModeValue('gray.200', 'gray.800'),
               outline: 'none',
             }}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Button
             bg={'blue.400'}
@@ -60,7 +93,9 @@ export default function CardWithIllustration() {
             color={'white'}
             flex={'1 0 auto'}
             _hover={{ bg: 'blue.500' }}
-            _focus={{ bg: 'blue.500' }}>
+            _focus={{ bg: 'blue.500' }}
+            onClick={registerNewsLetter}
+          >
             Subscribe
           </Button>
         </Stack>
