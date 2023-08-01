@@ -5,16 +5,19 @@ import { LayoutGroup } from "framer-motion";
 function MyApp({ Component, pageProps, router }) {
 
   return (
-   
-      <ChakraProvider>
-        <LayoutGroup>
-          <Layout>
-              <ScaleFade in="true" key={router.route}>
-                <Component {...pageProps} />
-              </ScaleFade>
-          </Layout>
-        </LayoutGroup>
-      </ChakraProvider>
+      <>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <ChakraProvider>
+          <LayoutGroup>
+            <Layout>
+                <ScaleFade in="true" key={router.route}>
+                  <Component {...pageProps} />
+                </ScaleFade>
+            </Layout>
+          </LayoutGroup>
+        </ChakraProvider>
+      </>
+      
   );
 }
 
