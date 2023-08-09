@@ -5,12 +5,62 @@ import {
     Heading,
     Center,
     Button,
-    Box
+    Box,
+    Card,
+    CardHeader,
+    CardBody,
+    CardFooter,
+    Text
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from 'next/link'
 
-const Tool = ({tool}) => {
+const Tool = ({tool, fontColor}) => {
+    return (
+
+      <Card width="350px">
+        <CardHeader>
+
+          <Heading size='md' textAlign="center">{tool.name}</Heading>
+          
+        </CardHeader>
+        <Center
+                    style={{
+                      width: "100px",
+                      height: "50px",
+                      position: "relative",
+                      margin: "0 auto",
+                      
+                    }}
+                   
+                  >
+                    <Image
+                      src={tool.image}
+                      alt={tool.name + " Logo"}
+                      layout="fill"
+                      objectFit="contain"
+                    />
+                  </Center>
+        <CardBody>
+          <Text color="black">{tool.summary}</Text>
+        </CardBody>
+        <CardFooter>
+          <a href={tool.link}>
+            <Button>Learn More</Button>
+          </a>
+        </CardFooter>
+      </Card>
+    
+    )
+}
+
+export default Tool
+
+
+/*
+
+
+const Tool = ({tool, fontColor}) => {
     return (
         <WrapItem key={tool.name}>
               <Box 
@@ -35,7 +85,7 @@ const Tool = ({tool}) => {
                       objectFit="contain"
                     />
                   </Center>
-                  <Center w="350px" color="white" paddingTop="15px">{tool.name}</Center>
+                  <Center w="350px" color={fontColor} paddingTop="15px">{tool.name}</Center>
                   </a>
                 </Stack>
               </Box>
@@ -44,3 +94,4 @@ const Tool = ({tool}) => {
 }
 
 export default Tool
+*/
