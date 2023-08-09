@@ -27,9 +27,9 @@ import {
         <Wrap spacing="30px" justify="center">
           {tools.map((tool) => {
             return (
-                <Box bgColor="white">
+                
                     <Tool tool={tool} key={tool.name} fontColor="black"/>
-                </Box>
+              
                 
             );
           })}
