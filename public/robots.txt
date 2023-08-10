@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gpt4sme.vercel.app
+
+# Sitemaps
+Sitemap: https://gpt4sme.vercel.app/sitemap.xml

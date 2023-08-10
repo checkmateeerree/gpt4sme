@@ -91,7 +91,7 @@ export default function Hero({
         </Wrap>
       </Stack>
       <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
-        <Image src={image} size="100%" rounded="1rem" shadow="2xl" padding="50px" />
+        <Image src={image} size="100%" rounded="1rem" shadow="2xl" padding="50px" alt={subtitle}/>
       </Box>
     </Flex>
   );
