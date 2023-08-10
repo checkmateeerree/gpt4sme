@@ -46,7 +46,7 @@ export default function WorkWithBusinesses({
         align={["center", "center", "flex-start", "flex-start"]}
       >
         <Heading
-          as="h1"
+          as="h2"
           size="lg"
           fontWeight="bold"
           color="primary.800"

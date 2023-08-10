@@ -19,7 +19,7 @@ const AITools = ({ tools, moreToolsLink }) => {
   return (
     <Stack bgColor="rgba(74, 153, 211, 1)" py="10" spacing="10" px="20px">
       <Center>
-        <Heading color="white" fontSize="30px">AI Services That We Teach</Heading>
+        <Heading color="white" as="h2" fontSize="30px">AI Services That We Teach</Heading>
       </Center>
 
       <Wrap spacing="30px" justify="center">
