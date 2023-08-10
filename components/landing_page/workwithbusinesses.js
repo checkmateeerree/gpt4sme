@@ -38,7 +38,7 @@ export default function WorkWithBusinesses({
         mb={{ base: 12, md: 0 }}
         pl={{ md: 4, lg: 6 }}
       >
-        <Image src={image} size="100%" rounded="1rem" shadow="2xl" key={subtitle} />
+        <Image src={image} size="100%" rounded="1rem" shadow="2xl" key={subtitle} alt={subtitle}/>
       </Box>
       <Stack
         spacing={4}
