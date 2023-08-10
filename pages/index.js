@@ -12,8 +12,9 @@ function Index() {
   return (
     <>
       <Head>
-        <title>GPT4SME: An organization that seeks to demystify the powers of AI to smaller and medium sized enterprises</title>
-        <meta property="og:title" content="GPT4SME: An organization that seeks to demystify the powers of AI to smaller and medium sized enterprises" key="title" />
+        <title>GPT4SME: We seek to demystify the powers of AI for SMEs</title>
+
+        <meta name="description" content="GPT4SME is an organization that seeks to demystify the powers of AI to smaller and medium sized enterprises" key="description" />
       </Head>
       {true && (
           <>
