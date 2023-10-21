@@ -1,17 +1,15 @@
 import React, {useState} from 'react'
 import { Box, Center, Heading, Text, SimpleGrid} from '@chakra-ui/react'
 import CountUp from 'react-countup';
-import VisibilitySensor from 'react-visibility-sensor';
 
 const Progress = () => {
-  const [viewPortEntered, setViewPortEntered] = useState(false);
   return (
     <Box margin="0 auto" justifyContent="center" width="100">
         <Center>
           <Heading fontSize="30px">Our Progress</Heading>
         </Center>
         <Center>
-            <SimpleGrid columns={2} spacing="100px" margin="50px">
+            <SimpleGrid columns={[1, null, 2]} spacing="100px" margin="50px">
                 <Box fontSize="75px" fontWeight="bold" margin="auto">
                    <Center>
                    <CountUp  enableScrollSpy={true} scrollSpyOnce start={0} end={11} delay={0} fontSize="50px">
