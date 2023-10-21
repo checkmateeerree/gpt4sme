@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 const Progress = () => {
   return (
-    <Box margin="0 auto" justifyContent="center" width="100">
+    <Box margin="0 auto" justifyContent="center" padding="40px">
         <Center>
           <Heading fontSize="30px">Our Progress</Heading>
         </Center>
