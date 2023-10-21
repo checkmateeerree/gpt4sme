@@ -13,13 +13,13 @@ import Link from "next/link";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import Tool from "./Tool";
-import AIToolsList from "../../../utils/LandingPageAIToolsList";
+import AIToolsList from "../../../utils/AITools/LandingPageAIToolsList";
 
 const AITools = ({ tools, moreToolsLink }) => {
   return (
-    <Stack bgColor="rgba(74, 153, 211, 1)" py="10" spacing="10" px="20px">
+    <Stack py="10" spacing="10" px="20px">
       <Center>
-        <Heading color="white" as="h2" fontSize="30px">AI Services That We Teach</Heading>
+        <Heading color="black" as="h2" fontSize="24px">AI Services That We Teach</Heading>
       </Center>
 
       <Wrap spacing="30px" justify="center">

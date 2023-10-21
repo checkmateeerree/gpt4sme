@@ -18,7 +18,7 @@ import Link from 'next/link'
 const Tool = ({tool, fontColor}) => {
     return (
 
-      <Card width="350px">
+      <Card width="350px" shadow="lg">
         <CardHeader>
 
           <Heading size='md' textAlign="center">{tool.name}</Heading>
@@ -55,43 +55,3 @@ const Tool = ({tool, fontColor}) => {
 }
 
 export default Tool
-
-
-/*
-
-
-const Tool = ({tool, fontColor}) => {
-    return (
-        <WrapItem key={tool.name}>
-              <Box 
-                
-              >
-                <Stack>
-                <a href={tool.link}>
-                  <Center
-                    style={{
-                      width: "200px",
-                      height: "100px",
-                      position: "relative",
-                      margin: "0 auto",
-                      
-                    }}
-                   
-                  >
-                    <Image
-                      src={tool.image}
-                      alt={tool.name + " Logo"}
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </Center>
-                  <Center w="350px" color={fontColor} paddingTop="15px">{tool.name}</Center>
-                  </a>
-                </Stack>
-              </Box>
-            </WrapItem>
-    )
-}
-
-export default Tool
-*/

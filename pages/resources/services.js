@@ -13,7 +13,7 @@ import {
   import Image from "next/image";
   import PropTypes from "prop-types";
   import Tool from "../../components/landing_page/AI_Tools/Tool";
-  import AIToolsList from "../../utils/LandingPageAIToolsList";
+  import AIToolsList from "../../utils/AITools/LandingPageAIToolsList";
   
   const AIServices = ({ tools }) => {
     return (

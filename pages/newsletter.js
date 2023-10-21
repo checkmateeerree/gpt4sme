@@ -52,12 +52,13 @@ export default function CardWithIllustration() {
       align={'center'}
       justify={'center'}
       py={3}
-      bg={useColorModeValue('gray.50', 'gray.800')}>
+      //bg={useColorModeValue('gray.50', 'gray.800')}
+    >
       <Stack
         boxShadow={'2xl'}
         bg={useColorModeValue('white', 'gray.700')}
         rounded={'xl'}
-        p={5}
+        padding="75px"
         mb="75px"
         spacing={8}
         align={'center'}>

@@ -6,6 +6,8 @@ import CallToAction from "../components/landing_page/calltoaction";
 import {Flex, Heading, Text, VStack, HStack, Box, Wrap} from "@chakra-ui/layout"
 import {Button, useToast} from "@chakra-ui/react"
 import Head from "next/head"
+import Testimonials from "../components/landing_page/testimonials/Testimonials";
+import Progress from "../components/landing_page/progress";
 
 function Index() {
   
@@ -19,9 +21,11 @@ function Index() {
       {true && (
           <>
             <Hero />
-            <AITools />
             <Mission />
             <WorkingWithBusinesses />
+            <Testimonials />
+            <Progress />
+            <AITools />
             <CallToAction />
           </>
         )
