@@ -12,8 +12,8 @@ import {
   import Link from "next/link";
   import Image from "next/image";
   import PropTypes from "prop-types";
-  import Tool from "../../components/landing_page/AI_Tools/Tool";
-  import AIToolsList from "../../utils/AITools/LandingPageAIToolsList";
+  import Tool from "../components/landing_page/AI_Tools/Tool";
+  import AIToolsList from "../utils/AITools/LandingPageAIToolsList";
   
   const AIServices = ({ tools }) => {
     return (

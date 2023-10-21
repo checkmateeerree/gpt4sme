@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Box, Flex, Text, Button, Heading, Menu, Center, MenuButton, MenuList, MenuItem} from "@chakra-ui/react";
+import { Box, Flex, Text, Button, Heading, Menu, MenuButton, MenuList, MenuItem} from "@chakra-ui/react";
 
 
 const MenuIt = ({ children, isLast, to = "/", ...rest }) => {
@@ -81,20 +81,19 @@ export default function Navbar() {
           <MenuIt to="/">Home</MenuIt>
           <MenuIt to="/about">About</MenuIt>
           <MenuIt to="/contact">Contact Us</MenuIt>
+          <MenuIt to="/services">AI Tools</MenuIt>
           <Flex mb={{ base: 8, sm: 8, md: 0 }}
             mr={{ base: 0, md: 12 }}>
             <Menu>
               <MenuButton>
-                Resources <ChevronDownIcon />
+                Our Guides <ChevronDownIcon />
               </MenuButton>
               <MenuList>
-                <Link href="/resources/services">
-                  <MenuItem>
-                    AI Services
-                  </MenuItem>
+                <Link href="/guides/data-analysis">
+                  <MenuItem>Data Analysis With GPT-4</MenuItem>
                 </Link>
-                <Link href="/resources/guide">
-                  <MenuItem>Our Guide</MenuItem>
+                <Link href="/guides/social-media-calendar">
+                  <MenuItem>Creating a Social Media Calendar with AI</MenuItem>
                 </Link>
                
               </MenuList>

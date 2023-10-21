@@ -16,7 +16,6 @@
     "@emotion/styled": "^11.11.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
-    "embla-carousel-react": "^8.0.0-rc14",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "framer-motion": "^10.14.0",
@@ -28,9 +27,8 @@
     "react-countup": "^6.4.2",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
-    "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
-    "react-visibility-sensor": "^5.1.1",
+    "react-youtube": "^10.1.0",
     "yarn": "^1.22.19"
   }
 }
