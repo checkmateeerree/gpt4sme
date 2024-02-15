@@ -29,5 +29,21 @@ export default [
       name: "Shurrun's House", 
       image: "/company_logos/shurrunshouse.png",
       link: "https://shurrunshouse.org/",
+    },
+    { 
+      name: "Philly Peace in Progress", 
+      image: "/company_logos/phillypeaceinprogress.png",
+      link: "https://www.phillypeaceinprogress.org/",
+    },
+    { 
+      name: "The Witness Foundation", 
+      image: "/company_logos/thewitnessfoundation.png",
+      link: "https://thewitnessfoundation.co/",
+    },
+    { 
+      name: "RAVEC", 
+      image: "/company_logos/RAVEC.jpeg",
+      link: "https://www.catchafire.org/organizations/ravec_66119/",
     }
+
 ]

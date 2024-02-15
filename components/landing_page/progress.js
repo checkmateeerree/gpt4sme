@@ -12,7 +12,7 @@ const Progress = () => {
             <SimpleGrid columns={[1, null, 2]} spacing="100px" margin="50px">
                 <Box fontSize="75px" fontWeight="bold" margin="auto">
                    <Center>
-                   <CountUp  enableScrollSpy={true} scrollSpyOnce start={0} end={11} delay={0} fontSize="50px">
+                   <CountUp  enableScrollSpy={true} scrollSpyOnce start={0} end={15} delay={0} fontSize="50px">
                     </CountUp>
                    </Center>
                     
@@ -20,7 +20,7 @@ const Progress = () => {
                 </Box>
                 <Box fontSize="75px" >
                     <Center>
-                    $<CountUp enableScrollSpy={true} scrollSpyOnce start={0} end={19785} delay={0} fontSize="50px" margin="auto">
+                    $<CountUp enableScrollSpy={true} scrollSpyOnce start={0} end={25578} delay={0} fontSize="50px" margin="auto">
                     </CountUp>
                     </Center>
                     <Center><Text fontSize="24px" fontWeight="light">Costs Saved</Text></Center>
