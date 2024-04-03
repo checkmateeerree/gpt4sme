@@ -109,7 +109,7 @@ export default function ContactUs() {
           >
             <Text>Based in New Jersey</Text>
             <Text>
-              <PhoneIcon mr="10px" /> 973-610-3610
+              <PhoneIcon mr="10px" /> 646-709-0638
             </Text>
             <Text>
               <EmailIcon mr="10px" />

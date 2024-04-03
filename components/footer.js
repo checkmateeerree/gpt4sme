@@ -26,7 +26,7 @@ export default function Footer() {
           spacing={4}
           justify={{ md: 'space-between' }}
           align={{ md: 'center' }}>
-          <Text>© 2023 GPT4SMEs. All rights reserved</Text>
+          <Text>© 2024 GPT4SME. All rights reserved</Text>
           <Stack direction={'row'} spacing={6}>
             
               <FaTwitter />

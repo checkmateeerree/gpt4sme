@@ -12,7 +12,7 @@ export default function About() {
               </Text>
             </Center>
           </Box>
-          <Box backgroundColor="blackAlpha.800" width="100vw" py="75px" px="25px">
+          {<Box backgroundColor="blackAlpha.800" width="100vw" py="75px" px="25px">
             <Heading textAlign="center" size="lg" color="white" pb="30px">Who Are We?</Heading>
             
             <Wrap spacing="20px" justify="center" mb="-20px">
@@ -27,6 +27,7 @@ export default function About() {
             <Text textAlign="center" color="white" pt="25px">Founded by Edward Mendel and Alan Hu, GPTS4ME is the result of our collective vision to harness the power of new AI to boost business success. We have assembled a talented team of like-minded individuals, all driven by the same passion for AI and its endless possibilities.
             </Text>
           </Box>
+          }
           <Box py="75px">
             <Heading textAlign="center" size="lg">What Do We Offer?</Heading>
             <Text textAlign="center" maxWidth="50vw" pt="25px">

@@ -79,7 +79,8 @@ export default function Navbar() {
           pt={[4, 4, 0, 0]}
         >
           <MenuIt to="/">Home</MenuIt>
-          <MenuIt to="/about">About</MenuIt>
+          {//<MenuIt to="/about">About</MenuIt>
+}
           <MenuIt to="/contact">Contact Us</MenuIt>
           <MenuIt to="/services">AI Tools</MenuIt>
           <Flex mb={{ base: 8, sm: 8, md: 0 }}
