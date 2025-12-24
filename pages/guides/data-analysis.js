@@ -61,7 +61,7 @@ export default function DataAnalysisGuide() {
                 color="gray.600"
                 lineHeight="1.7"
               >
-                Transform your data analysis workflows with GPT-4's advanced capabilities for pattern recognition, insight generation, and strategic decision-making.
+                Transform your data analysis workflows with GPT-4&apos;s advanced capabilities for pattern recognition, insight generation, and strategic decision-making.
               </Text>
             </Box>
 
@@ -119,7 +119,7 @@ export default function DataAnalysisGuide() {
                       Pattern Recognition & Anomaly Detection
                     </Heading>
                     <Text fontSize="md" color="gray.700" lineHeight="1.8">
-                      Identify subtle patterns and anomalies in large datasets that might be missed by traditional statistical methods. GPT-4's reasoning capabilities enable it to detect correlations and outliers across multiple dimensions.
+                      Identify subtle patterns and anomalies in large datasets that might be missed by traditional statistical methods. GPT-4&apos;s reasoning capabilities enable it to detect correlations and outliers across multiple dimensions.
                     </Text>
                   </Box>
                   <Box>

@@ -83,7 +83,7 @@ export default function CustomerServiceAutomationGuide() {
                   lineHeight="1.8"
                   mb={4}
                 >
-                  Customer service is a critical differentiator in today's competitive marketplace. Organizations face increasing pressure to provide fast, accurate, and personalized support across multiple channels while managing costs. Traditional customer service models struggle to scale effectively, leading to longer wait times, inconsistent experiences, and higher operational expenses.
+                  Customer service is a critical differentiator in today&apos;s competitive marketplace. Organizations face increasing pressure to provide fast, accurate, and personalized support across multiple channels while managing costs. Traditional customer service models struggle to scale effectively, leading to longer wait times, inconsistent experiences, and higher operational expenses.
                 </Text>
                 <Text
                   fontSize="md"
@@ -283,7 +283,7 @@ export default function CustomerServiceAutomationGuide() {
                   <HStack align="flex-start" spacing={3}>
                     <Box w="6px" h="6px" bg="gray.900" mt={2} flexShrink={0} />
                     <Text fontSize="md" color="gray.700" lineHeight="1.8">
-                      Provide transparency to customers about when they're interacting with AI
+                      Provide transparency to customers about when they&apos;re interacting with AI
                     </Text>
                   </HStack>
                   <HStack align="flex-start" spacing={3}>

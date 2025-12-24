@@ -134,7 +134,7 @@ export default function SocialMediaCalendarGuide() {
                       Multi-Platform Management
                     </Heading>
                     <Text fontSize="md" color="gray.700" lineHeight="1.8">
-                      Streamline content distribution across multiple platforms with AI-powered scheduling and platform-specific optimization. Ensure consistent messaging while adapting to each platform's unique requirements.
+                      Streamline content distribution across multiple platforms with AI-powered scheduling and platform-specific optimization. Ensure consistent messaging while adapting to each platform&apos;s unique requirements.
                     </Text>
                   </Box>
                 </VStack>
