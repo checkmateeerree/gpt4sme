@@ -8,8 +8,8 @@ import {
   Image,
   Heading,
   Stack,
-  Wrap,
-  WrapItem
+  Text,
+  Container
 } from "@chakra-ui/react";
 
 export default function Hero({
@@ -23,77 +23,97 @@ export default function Hero({
   ...rest
 }) {
   return (
-    <Flex
-      align="center"
-      justify={{ base: "center", md: "space-around", xl: "space-between" }}
-      direction={{ base: "column-reverse", md: "row" }}
-      wrap="no-wrap"
-      minH="70vh"
-      px={8}
-      mb={16}
-      {...rest}
-    >
-      <Stack
-        spacing={4}
-        w={{ base: "80%", md: "40%" }}
-        align={["center", "center", "flex-start", "flex-start"]}
+    <Container maxW="7xl" py={{ base: 16, md: 24 }} px={{ base: 6, md: 12 }}>
+      <Flex
+        align="center"
+        justify={{ base: "center", md: "space-between" }}
+        direction={{ base: "column", md: "row" }}
+        wrap="no-wrap"
+        minH={{ base: "60vh", md: "80vh" }}
+        gap={12}
+        {...rest}
       >
-        <Heading
-          as="h1"
-          size="2xl"
-          fontWeight="bold"
-          color="primary.800"
-          textAlign={["center", "center", "left", "left"]}
+        <Stack
+          spacing={8}
+          w={{ base: "100%", md: "48%" }}
+          align={{ base: "center", md: "flex-start" }}
+          textAlign={{ base: "center", md: "left" }}
         >
-          {title}
-        </Heading>
-        <Heading
-          as="h2"
-          size="md"
-          color="primary.800"
-          opacity="0.8"
-          fontWeight="normal"
-          lineHeight={1.5}
-          textAlign={["center", "center", "left", "left"]}
-        >
-          {subtitle}
-        </Heading>
-        <Wrap spacing="30px">
-          <WrapItem>
+          <Heading
+            as="h1"
+            fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+            fontWeight="700"
+            color="gray.900"
+            lineHeight="1.1"
+            letterSpacing="-0.02em"
+          >
+            {title}
+          </Heading>
+          <Text
+            fontSize={{ base: "lg", md: "xl" }}
+            color="gray.600"
+            fontWeight="400"
+            lineHeight="1.7"
+            maxW="600px"
+          >
+            {subtitle}
+          </Text>
+          <Stack direction={{ base: "column", sm: "row" }} spacing={4} w="100%">
             <Link href={ctaLink}>
               <Button
-                colorScheme="blue"
-                borderRadius="8px"
-                py="4"
-                px="4"
-                lineHeight="1"
-                size="md"
+                bg="gray.900"
+                color="white"
+                size="lg"
+                px={8}
+                py={6}
+                rounded="none"
+                fontWeight="500"
+                letterSpacing="0.5px"
+                textTransform="uppercase"
+                fontSize="sm"
+                _hover={{ bg: "gray.800" }}
+                transition="all 0.2s"
+                w={{ base: "100%", sm: "auto" }}
               >
                 {ctaText}
               </Button>
             </Link>
-          </WrapItem>
-          <WrapItem>
             <Link href={secondLink}>
               <Button
-                colorScheme="green"
                 variant="outline"
-                borderRadius="8px"
-                py="4"
-                px="4"
-                lineHeight="1"
-                size="md"
+                borderColor="gray.900"
+                color="gray.900"
+                size="lg"
+                px={8}
+                py={6}
+                rounded="none"
+                fontWeight="500"
+                letterSpacing="0.5px"
+                textTransform="uppercase"
+                fontSize="sm"
+                _hover={{ bg: "gray.50" }}
+                transition="all 0.2s"
+                w={{ base: "100%", sm: "auto" }}
               >
                 {secondText}
               </Button>
             </Link>
-          </WrapItem>
-        </Wrap>
-      </Stack>
-      <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
-        <Image src={image} size="100%" rounded="1rem" shadow="2xl" padding="50px" alt={subtitle}/>
-      </Box>
-    </Flex>
+          </Stack>
+        </Stack>
+        <Box 
+          w={{ base: "100%", md: "48%" }} 
+          display={{ base: "none", md: "block" }}
+        >
+          <Image 
+            src={image} 
+            alt={subtitle}
+            w="100%"
+            h="auto"
+            objectFit="contain"
+          />
+        </Box>
+      </Flex>
+    </Container>
   );
 }
 
@@ -108,12 +128,12 @@ Hero.propTypes = {
 };
 
 Hero.defaultProps = {
-  title: "Helping businesses harness the power of AI through interactive guidance.",
+  title: "Enterprise AI Solutions for Modern Businesses",
   subtitle:
-    "We directly collaborate with small and medium enterprises to automate business functions with advanced GPT applications.",
+    "We partner with forward-thinking organizations to implement advanced AI technologies that drive efficiency, innovation, and competitive advantage.",
   image: "/svgs/artificial_intelligence.svg",
-  ctaText: "Join Today",
-  ctaLink: "/newsletter",
+  ctaText: "Get Started",
+  ctaLink: "/contact",
   secondText: "Learn More",
   secondLink: "/about"
 };

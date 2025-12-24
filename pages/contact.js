@@ -9,7 +9,8 @@ import {
   Stack,
   Heading,
   Box,
-  Center
+  Center,
+  Container
 } from "@chakra-ui/layout";
 import {
   FormControl,
@@ -74,57 +75,137 @@ export default function ContactUs() {
   }
 
   return (
-    <Stack>
-    <Flex justify="center" pb="60px">
-      <Box width={{lg: "900px"}} shadow="2xl" rounded="1rem" p="40px 50px">
-      <Wrap
-        direction={{ base: "column", md: "row", lg: "row" }}
-        spacing={{ base: "30px", md: "150px", lg: "200px" }}
-      >
-      
-        <WrapItem>
-          <Fade in>
-            <Stack spacing="30px">
-              <Heading size="md">Leave us a Message</Heading>
-              <FormControl id="name">
-                <Input width="300px" type="name" placeholder="Your Name" onChange={handleNameChange} required/>
-              </FormControl>
-              <FormControl id="email">
-                <Input type="email" placeholder="Your Email" onChange={handleEmailChange} required/>
-                <FormHelperText>We&apos;ll never share your email.</FormHelperText>
-              </FormControl>
-              <FormControl id="message">
-                <Textarea placeholder="Your Message" onChange={handleMessageChange} required/>
-              </FormControl>
-              <Button colorScheme="teal" onClick={handleSubmit}>Send Message</Button>
-            </Stack>
-          </Fade>
-        </WrapItem>
-        <WrapItem>
-          <Stack
-            display={{ base: "none", md: "initial" }}
-            m="auto"
-            spacing="20px"
-            justify="center"
+    <Box py={{ base: 12, md: 20 }} bg="white">
+      <Container maxW="6xl" px={{ base: 6, md: 12 }}>
+        <Stack spacing={12}>
+          <Box textAlign="center" maxW="2xl" mx="auto">
+            <Heading 
+              fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+              fontWeight="700"
+              color="gray.900"
+              letterSpacing="-0.02em"
+              mb={4}
+            >
+              Get In Touch
+            </Heading>
+            <Text 
+              fontSize={{ base: "lg", md: "xl" }}
+              color="gray.600"
+              lineHeight="1.7"
+            >
+              Connect with our team to discuss how we can help transform your business with AI.
+            </Text>
+          </Box>
+
+          <Flex 
+            justify="center" 
+            direction={{ base: "column", lg: "row" }}
+            gap={12}
           >
-            <Text>Based in New Jersey</Text>
-            <Text>
-              <PhoneIcon mr="10px" /> 646-709-0638
-            </Text>
-            <Text>
-              <EmailIcon mr="10px" />
-              gpt4sme@gmail.com
-            </Text>
-            <Wrap spacing="20px">
-              <IconButton aria-label="Twitter Icon" icon={<FaTwitter />} />
-              <IconButton aria-label="Youtube Icon" icon={<FaYoutube />} />
-              <IconButton aria-label="Instagram Icon" icon={<FaInstagram />} />
-            </Wrap>
-          </Stack>
-        </WrapItem>
-      </Wrap>
-      </Box>
-    </Flex>
-    </Stack>
+            <Box 
+              flex="1" 
+              maxW={{ base: "100%", lg: "600px" }}
+              bg="white"
+              border="1px solid"
+              borderColor="gray.200"
+              p={{ base: 8, md: 12 }}
+            >
+              <Fade in>
+                <Stack spacing={6}>
+                  <Heading size="lg" fontWeight="600" color="gray.900">
+                    Send a Message
+                  </Heading>
+                  <FormControl id="name">
+                    <Input 
+                      type="name" 
+                      placeholder="Full Name" 
+                      onChange={handleNameChange} 
+                      required
+                      rounded="none"
+                      borderColor="gray.300"
+                      _focus={{ borderColor: "gray.900", boxShadow: "none" }}
+                    />
+                  </FormControl>
+                  <FormControl id="email">
+                    <Input 
+                      type="email" 
+                      placeholder="Email Address" 
+                      onChange={handleEmailChange} 
+                      required
+                      rounded="none"
+                      borderColor="gray.300"
+                      _focus={{ borderColor: "gray.900", boxShadow: "none" }}
+                    />
+                    <FormHelperText fontSize="xs" color="gray.500">
+                      We&apos;ll never share your email.
+                    </FormHelperText>
+                  </FormControl>
+                  <FormControl id="message">
+                    <Textarea 
+                      placeholder="Your Message" 
+                      onChange={handleMessageChange} 
+                      required
+                      rows={6}
+                      rounded="none"
+                      borderColor="gray.300"
+                      _focus={{ borderColor: "gray.900", boxShadow: "none" }}
+                    />
+                  </FormControl>
+                  <Button 
+                    bg="gray.900"
+                    color="white"
+                    onClick={handleSubmit}
+                    size="lg"
+                    rounded="none"
+                    fontWeight="500"
+                    letterSpacing="0.5px"
+                    textTransform="uppercase"
+                    fontSize="sm"
+                    _hover={{ bg: "gray.800" }}
+                    transition="all 0.2s"
+                    w="100%"
+                  >
+                    Send Message
+                  </Button>
+                </Stack>
+              </Fade>
+            </Box>
+            
+            <Stack
+              display={{ base: "none", lg: "flex" }}
+              spacing={8}
+              flex="1"
+              maxW="400px"
+              justify="center"
+            >
+              <Box>
+                <Text fontSize="sm" fontWeight="600" color="gray.500" mb={2} letterSpacing="0.5px" textTransform="uppercase">
+                  Location
+                </Text>
+                <Text fontSize="lg" color="gray.900" fontWeight="400">
+                  New Jersey, United States
+                </Text>
+              </Box>
+              <Box>
+                <Text fontSize="sm" fontWeight="600" color="gray.500" mb={2} letterSpacing="0.5px" textTransform="uppercase">
+                  Phone
+                </Text>
+                <Text fontSize="lg" color="gray.900" fontWeight="400">
+                  646-709-0638
+                </Text>
+              </Box>
+              <Box>
+                <Text fontSize="sm" fontWeight="600" color="gray.500" mb={2} letterSpacing="0.5px" textTransform="uppercase">
+                  Email
+                </Text>
+                <Text fontSize="lg" color="gray.900" fontWeight="400">
+                  gpt4sme@gmail.com
+                </Text>
+              </Box>
+            </Stack>
+          </Flex>
+        </Stack>
+      </Container>
+    </Box>
   );
 }

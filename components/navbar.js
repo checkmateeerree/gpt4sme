@@ -1,15 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Box, Flex, Text, Button, Heading, Menu, MenuButton, MenuList, MenuItem} from "@chakra-ui/react";
+import { Box, Flex, Text, Button, Heading } from "@chakra-ui/react";
 
 
 const MenuIt = ({ children, isLast, to = "/", ...rest }) => {
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 8, md: 0 }}
-      mr={{ base: 0, md: isLast ? 0 : 12 }}
+      mr={{ base: 0, md: isLast ? 0 : 8 }}
       display="block"
+      fontSize="sm"
+      fontWeight="500"
+      letterSpacing="0.5px"
+      textTransform="uppercase"
+      color="gray.700"
+      _hover={{ color: "gray.900" }}
+      transition="color 0.2s"
       {...rest}
     >
       <Link href={to}>{children}</Link>
@@ -21,7 +27,7 @@ const CloseIcon = () => (
   <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
     <title>Close</title>
     <path
-      fill="black"
+      fill="#1a202c"
       d="M9.00023 7.58599L13.9502 2.63599L15.3642 4.04999L10.4142 8.99999L15.3642 13.95L13.9502 15.364L9.00023 10.414L4.05023 15.364L2.63623 13.95L7.58623 8.99999L2.63623 4.04999L4.05023 2.63599L9.00023 7.58599Z"
     />
   </svg>
@@ -32,7 +38,7 @@ const MenuIcon = () => (
     width="24px"
     viewBox="0 0 20 20"
     xmlns="http://www.w3.org/2000/svg"
-    fill="black"
+    fill="#1a202c"
   >
     <title>Menu</title>
     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -53,18 +59,26 @@ export default function Navbar() {
       w="100%"
       zIndex="1000"
       mb={8}
-      p={8}
-      shadow="base"
-      bg={["white", "white", "white", "white"]}
-      color={["black", "black", "primary.700", "primary.700"]}
+      px={{ base: 6, md: 12, lg: 20 }}
+      py={6}
+      bg="white"
+      borderBottom="1px solid"
+      borderColor="gray.100"
+      backdropFilter="blur(10px)"
+      bgColor="rgba(255, 255, 255, 0.95)"
     >
       <Flex align="center">
-        <Heading size="md">
+        <Heading 
+          size="lg" 
+          fontWeight="700"
+          letterSpacing="-0.5px"
+          color="gray.900"
+        >
           <Link href="/">GPT4SME</Link>
         </Heading>
       </Flex>
 
-      <Box display={{ base: "block", lg: "none" }} onClick={toggleMenu}>
+      <Box display={{ base: "block", lg: "none" }} onClick={toggleMenu} cursor="pointer">
         {show ? <CloseIcon /> : <MenuIcon />}
       </Box>
 
@@ -79,39 +93,27 @@ export default function Navbar() {
           pt={[4, 4, 0, 0]}
         >
           <MenuIt to="/">Home</MenuIt>
-          {//<MenuIt to="/about">About</MenuIt>
-}
-          <MenuIt to="/contact">Contact Us</MenuIt>
-          <MenuIt to="/services">AI Tools</MenuIt>
-          <Flex mb={{ base: 8, sm: 8, md: 0 }}
-            mr={{ base: 0, md: 12 }}>
-            <Menu>
-              <MenuButton>
-                Our Guides <ChevronDownIcon />
-              </MenuButton>
-              <MenuList>
-                <Link href="/guides/data-analysis">
-                  <MenuItem>Data Analysis With GPT-4</MenuItem>
-                </Link>
-                <Link href="/guides/social-media-calendar">
-                  <MenuItem>Creating a Social Media Calendar with AI</MenuItem>
-                </Link>
-               
-              </MenuList>
-            </Menu>
-          </Flex>
-          <MenuIt to="/newsletter">
+          <MenuIt to="/about">About</MenuIt>
+          <MenuIt to="/guides">Guides</MenuIt>
+          <MenuIt to="/contact">Contact</MenuIt>
+          <MenuIt to="/newsletter" isLast>
             <Button
-                size="sm"
-                rounded="md"
-                colorScheme="blue"
-                variant="outline"
-              >
-                 Join Our Newsletter
-              </Button>
-           
+              size="sm"
+              rounded="none"
+              bg="gray.900"
+              color="white"
+              fontWeight="500"
+              letterSpacing="0.5px"
+              textTransform="uppercase"
+              fontSize="xs"
+              px={6}
+              py={5}
+              _hover={{ bg: "gray.800" }}
+              transition="all 0.2s"
+            >
+              Newsletter
+            </Button>
           </MenuIt>
-          
         </Flex>
       </Box>
     </Flex>

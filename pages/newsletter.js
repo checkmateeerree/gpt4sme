@@ -1,20 +1,21 @@
-import React, { useState } from'react'
-
+import React, { useState } from 'react'
 import {
-  Flex,
+  Box,
   Stack,
   Heading,
   Text,
   Input,
   Button,
-  Icon,
-  useColorModeValue,
-  createIcon,
-  Image
+  Container,
+  useToast
 } from '@chakra-ui/react'
+import Head from 'next/head'
 
-export default function CardWithIllustration() {
+export default function Newsletter() {
   const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const toast = useToast();
+
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -22,168 +23,158 @@ export default function CardWithIllustration() {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
+
   const registerNewsLetter = async () => {
     if(!validateEmail(email)){
-      alert('Please enter a valid email address');
-            return;
+      toast({
+        title: 'Invalid Email',
+        description: 'Please enter a valid email address',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
     }
-    const response = await fetch('/api/subscribeUser', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: email
-      })
-    });
-    const data = await response.json();
-    if (data.success){
-      alert('Thank you for subscribing to our newsletter!');
-      window.location = '/';
-    } else {
-      alert("There was an error subscribing to our newsletter. Please try again later or email us at gpt4sme@gmail.com to join.");
+
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/subscribeUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email
+        })
+      });
+      const data = await response.json();
+      if (data.success){
+        toast({
+          title: 'Successfully Subscribed',
+          description: 'Thank you for subscribing to our newsletter.',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        });
+        setEmail('');
+        setTimeout(() => {
+          window.location = '/';
+        }, 2000);
+      } else {
+        toast({
+          title: 'Subscription Failed',
+          description: 'There was an error. Please try again later or contact us at gpt4sme@gmail.com',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+    } catch (error) {
+      toast({
+        title: 'Subscription Failed',
+        description: 'There was an error. Please try again later.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setIsLoading(false);
     }
   }
 
-
   return (
-    <Flex
-      minH={'50vh'}
-      align={'center'}
-      justify={'center'}
-      py={3}
-      //bg={useColorModeValue('gray.50', 'gray.800')}
-    >
-      <Stack
-        boxShadow={'2xl'}
-        bg={useColorModeValue('white', 'gray.700')}
-        rounded={'xl'}
-        padding="75px"
-        mb="75px"
-        spacing={8}
-        align={'center'}>
-        <Image src={"/svgs/newsletter.svg"} w="200px" h="200px"/>
-        <Stack align={'center'} spacing={2}>
-          <Heading
-            textTransform={'uppercase'}
-            fontSize={'3xl'}
-            color={useColorModeValue('gray.800', 'gray.200')}>
-            Subscribe
-          </Heading>
-          <Text fontSize={'lg'} color={'gray.500'} maxWidth="600px" textAlign="center">
-            Subscribe to our newsletter and receive all of our up-to-date resources and guides for using AI services!
-          </Text>
-        </Stack>
-        <Stack spacing={4} direction={{ base: 'column', md: 'row' }} w={'full'}>
-          <Input
-            type={'text'}
-            placeholder={'email address'}
-            color={useColorModeValue('gray.800', 'gray.200')}
-            bg={useColorModeValue('gray.100', 'gray.600')}
-            rounded={'full'}
-            border={0}
-            _focus={{
-              bg: useColorModeValue('gray.200', 'gray.800'),
-              outline: 'none',
-            }}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Button
-            bg={'blue.400'}
-            rounded={'full'}
-            color={'white'}
-            flex={'1 0 auto'}
-            _hover={{ bg: 'blue.500' }}
-            _focus={{ bg: 'blue.500' }}
-            onClick={registerNewsLetter}
-          >
-            Subscribe
-          </Button>
-        </Stack>
-      </Stack>
-    </Flex>
+    <>
+      <Head>
+        <title>Newsletter Subscription | GPT4SME</title>
+        <meta name="description" content="Subscribe to GPT4SME newsletter for insights on enterprise AI solutions and strategic implementation." />
+      </Head>
+      <Box bg="white" py={{ base: 16, md: 24 }} minH="70vh">
+        <Container maxW="2xl" px={{ base: 6, md: 12 }}>
+          <Stack spacing={10} align="center" textAlign="center">
+            <Box>
+              <Heading
+                fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+                fontWeight="700"
+                color="gray.900"
+                letterSpacing="-0.02em"
+                mb={4}
+              >
+                Stay Informed
+              </Heading>
+              <Text
+                fontSize={{ base: "lg", md: "xl" }}
+                color="gray.600"
+                lineHeight="1.7"
+                maxW="600px"
+              >
+                Subscribe to receive strategic insights, industry updates, and exclusive content on enterprise AI implementation.
+              </Text>
+            </Box>
+
+            <Box
+              w="100%"
+              maxW="600px"
+              border="1px solid"
+              borderColor="gray.200"
+              p={{ base: 8, md: 12 }}
+            >
+              <Stack spacing={6}>
+                <Box>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="600"
+                    color="gray.500"
+                    mb={2}
+                    letterSpacing="0.5px"
+                    textTransform="uppercase"
+                  >
+                    Email Address
+                  </Text>
+                  <Input
+                    type="email"
+                    placeholder="your.email@company.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    size="lg"
+                    rounded="none"
+                    borderColor="gray.300"
+                    _focus={{
+                      borderColor: "gray.900",
+                      boxShadow: "none",
+                    }}
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        registerNewsLetter();
+                      }
+                    }}
+                  />
+                </Box>
+                <Button
+                  bg="gray.900"
+                  color="white"
+                  size="lg"
+                  rounded="none"
+                  fontWeight="500"
+                  letterSpacing="0.5px"
+                  textTransform="uppercase"
+                  fontSize="sm"
+                  w="100%"
+                  _hover={{ bg: "gray.800" }}
+                  transition="all 0.2s"
+                  onClick={registerNewsLetter}
+                  isLoading={isLoading}
+                  loadingText="Subscribing..."
+                >
+                  Subscribe
+                </Button>
+                <Text fontSize="xs" color="gray.500" textAlign="center">
+                  We respect your privacy. Unsubscribe at any time.
+                </Text>
+              </Stack>
+            </Box>
+          </Stack>
+        </Container>
+      </Box>
+    </>
   )
 }
-
-const NotificationIcon = createIcon({
-  displayName: 'Notification',
-  viewBox: '0 0 128 128',
-  path: (
-    <g id="Notification">
-      <rect className="cls-1" x="1" y="45" fill={'#fbcc88'} width="108" height="82" />
-      <circle className="cls-2" fill={'#8cdd79'} cx="105" cy="86" r="22" />
-      <rect className="cls-3" fill={'#f6b756'} x="1" y="122" width="108" height="5" />
-      <path
-        className="cls-4"
-        fill={'#7ece67'}
-        d="M105,108A22,22,0,0,1,83.09,84a22,22,0,0,0,43.82,0A22,22,0,0,1,105,108Z"
-      />
-      <path
-        fill={'#f6b756'}
-        className="cls-3"
-        d="M109,107.63v4A22,22,0,0,1,83.09,88,22,22,0,0,0,109,107.63Z"
-      />
-      <path
-        className="cls-5"
-        fill={'#d6ac90'}
-        d="M93,30l16,15L65.91,84.9a16,16,0,0,1-21.82,0L1,45,17,30Z"
-      />
-      <path
-        className="cls-6"
-        fill={'#cba07a'}
-        d="M109,45,65.91,84.9a16,16,0,0,1-21.82,0L1,45l2.68-2.52c43.4,40.19,41.54,39.08,45.46,40.6A16,16,0,0,0,65.91,79.9l40.41-37.42Z"
-      />
-      <path
-        className="cls-7"
-        fill={'#dde1e8'}
-        d="M93,1V59.82L65.91,84.9a16,16,0,0,1-16.77,3.18C45.42,86.64,47,87.6,17,59.82V1Z"
-      />
-      <path
-        className="cls-8"
-        fill={'#c7cdd8'}
-        d="M74,56c-3.56-5.94-3-10.65-3-17.55a16.43,16.43,0,0,0-12.34-16,5,5,0,1,0-7.32,0A16,16,0,0,0,39,38c0,7.13.59,12-3,18a3,3,0,0,0,0,6H50.41a5,5,0,1,0,9.18,0H74a3,3,0,0,0,0-6ZM53.2,21.37a3,3,0,1,1,3.6,0,1,1,0,0,0-.42.7,11.48,11.48,0,0,0-2.77,0A1,1,0,0,0,53.2,21.37Z"
-      />
-      <path
-        className="cls-3"
-        fill={'#f6b756'}
-        d="M46.09,86.73,3,127H1v-1c6-5.62-1.26,1.17,43.7-40.78A1,1,0,0,1,46.09,86.73Z"
-      />
-      <path
-        className="cls-3"
-        fill={'#f6b756'}
-        d="M109,126v1h-2L63.91,86.73a1,1,0,0,1,1.39-1.49C111,127.85,103.11,120.51,109,126Z"
-      />
-      <path
-        className="cls-8"
-        fill={'#c7cdd8'}
-        d="M93,54.81v5L65.91,84.9a16,16,0,0,1-16.77,3.18C45.42,86.64,47,87.6,17,59.82v-5L44.09,79.9a16,16,0,0,0,21.82,0Z"
-      />
-      <path
-        className="cls-9"
-        fill={'#fff'}
-        d="M101,95c-.59,0-.08.34-8.72-8.3a1,1,0,0,1,1.44-1.44L101,92.56l15.28-15.28a1,1,0,0,1,1.44,1.44C100.21,96.23,101.6,95,101,95Z"
-      />
-      <path
-        className="cls-3"
-        fill={'#f6b756'}
-        d="M56.8,18.38a3,3,0,1,0-3.6,0A1,1,0,0,1,52,20,5,5,0,1,1,58,20,1,1,0,0,1,56.8,18.38Z"
-      />
-      <path
-        className="cls-1"
-        fill={'#fbcc88'}
-        d="M71,42.17V35.45c0-8.61-6.62-16-15.23-16.43A16,16,0,0,0,39,35c0,7.33.58,12-3,18H74A21.06,21.06,0,0,1,71,42.17Z"
-      />
-      <path
-        className="cls-3"
-        fill={'#f6b756'}
-        d="M74,53H36a21.36,21.36,0,0,0,1.86-4H72.14A21.36,21.36,0,0,0,74,53Z"
-      />
-      <path className="cls-3" fill={'#f6b756'} d="M59.59,59a5,5,0,1,1-9.18,0" />
-      <path
-        className="cls-1"
-        fill={'#fbcc88'}
-        d="M74,59H36a3,3,0,0,1,0-6H74a3,3,0,0,1,0,6Z"
-      />
-    </g>
-  ),
-})

@@ -1,74 +1,65 @@
 import React from "react";
-import Link from "next/link";
 import PropTypes from "prop-types";
 import {
   Box,
-  Button,
   Flex,
   Image,
   Heading,
   Stack,
   Text,
-  Wrap,
-  WrapItem
+  Container
 } from "@chakra-ui/react";
 
 export default function Mission({
   title,
   subtitle,
   image,
-  ctaLink,
-  ctaText,
   ...rest
 }) {
   return (
-    <Flex
-      align="center"
-      justify={{ base: "center", md: "space-around", xl: "space-between" }}
-      direction={{ base: "column", md: "row-reverse", lg: 'row-reverse' }}
-      wrap="no-wrap"
-      minH="70vh"
-      pt={12}
-      pl={{md: 5, lg: "125px"}}
-      pr={3}
-      mb={16}
-      {...rest}
-    >
-      <Box
-        w={{ base: "80%", sm: "60%", md: "50%" }}
-        mb={{ base: 12, md: 0 }}
-        pl={{ md: 4, lg: 6 }}
-      >
-        <Image src={image} size="100%" rounded="1rem" shadow="2xl" alt={subtitle}/>
-      </Box>
-      <Stack
-        spacing={4}
-        w={{ base: "80%", md: "40%" }}
-        align={["center", "center", "flex-start", "flex-start"]}
-      >
-        <Heading
-          as="h2"
-          size="lg"
-          fontWeight="bold"
-          color="primary.800"
-          textAlign={["center", "center", "left", "left"]}
+    <Box bg="gray.50" py={{ base: 16, md: 24 }}>
+      <Container maxW="7xl" px={{ base: 6, md: 12 }}>
+        <Flex
+          align="center"
+          justify={{ base: "center", md: "space-between" }}
+          direction={{ base: "column", md: "row" }}
+          wrap="no-wrap"
+          gap={12}
+          {...rest}
         >
-          {title}
-        </Heading>
-        <Heading
-          as="h2"
-          size="m"
-          color="primary.800"
-          opacity="0.8"
-          fontWeight="normal"
-          lineHeight={1.5}
-          textAlign={["center", "center", "left", "left"]}
-        >
-          {subtitle}
-        </Heading>
-    
-      </Stack>
-    </Flex>
+          <Stack
+            spacing={6}
+            w={{ base: "100%", md: "48%" }}
+            align={{ base: "center", md: "flex-start" }}
+            textAlign={{ base: "center", md: "left" }}
+          >
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+              fontWeight="700"
+              color="gray.900"
+              letterSpacing="-0.02em"
+            >
+              {title}
+            </Heading>
+            <Text
+              fontSize={{ base: "lg", md: "xl" }}
+              color="gray.600"
+              fontWeight="400"
+              lineHeight="1.7"
+            >
+              {subtitle}
+            </Text>
+          </Stack>
+          <Box
+            w={{ base: "100%", md: "48%" }}
+            display={{ base: "none", md: "block" }}
+          >
+            <Image src={image} alt={subtitle} w="100%" h="auto" objectFit="contain" />
+          </Box>
+        </Flex>
+      </Container>
+    </Box>
   );
 }
 
@@ -76,13 +67,11 @@ Mission.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   image: PropTypes.string,
-  ctaText: PropTypes.string,
-  ctaLink: PropTypes.string
 };
 
 Mission.defaultProps = {
-  title: "Our mission",
+  title: "Our Mission",
   subtitle:
-    "Empowering small and medium enterprises with GPT-powered solutions, our social enterprise agency aims to meet niche demands and provide effective services through a user-friendly website.",
+    "We deliver strategic AI implementation services that transform how enterprises operate. Our approach combines cutting-edge technology with deep industry expertise to create solutions that drive measurable business outcomes.",
   image: "/svgs/mission_statement.svg",
 };

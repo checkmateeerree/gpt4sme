@@ -1,47 +1,71 @@
-import { Flex, Text, Wrap, WrapItem, Stack } from "@chakra-ui/layout";
+import { Flex, Text, Stack, Container, Heading, Box } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/react";
 import Link from "next/link"
 import React from "react";
 
 export default function CallToAction() {
   return (
-    <Flex bgColor="#F5F5F5" px={4} py={16} justify="center">
-        <Stack>
-        <Text fontSize={{ base: "md", md: "xl", lg: "2xl" }} my="auto" fontWeight="medium">
-            Sign up to our email newsletter to access our latest resources and features!
-        </Text>
-    
-        <Wrap my="auto" spacing="12px" justify="center">
-        <WrapItem>
-          <Button
-            colorScheme="blue"
-            borderRadius="8px"
-            variant="outline"
-            py="4"
-            px="4"
-            lineHeight="1"
+    <Box bg="gray.900" py={{ base: 16, md: 20 }}>
+      <Container maxW="4xl" px={{ base: 6, md: 12 }}>
+        <Stack spacing={8} align="center" textAlign="center">
+          <Heading
+            fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+            fontWeight="700"
+            color="white"
+            letterSpacing="-0.02em"
           >
-            <Link href="/newsletter">
-                Join Today  
-            </Link>
-          </Button>
-        </WrapItem>
-        <WrapItem>
-          <Button
-            colorScheme="teal"
-            borderRadius="8px"
-            variant="outline"
-            py="4"
-            px="4"
-            lineHeight="1"
+            Ready to Transform Your Business?
+          </Heading>
+          <Text 
+            fontSize={{ base: "lg", md: "xl" }} 
+            color="gray.300"
+            maxW="600px"
           >
+            Connect with our team to discuss how AI can drive your organization forward.
+          </Text>
+          <Stack direction={{ base: "column", sm: "row" }} spacing={4}>
             <Link href="/contact">
-                Contact Us 
+              <Button
+                bg="white"
+                color="gray.900"
+                size="lg"
+                px={8}
+                py={6}
+                rounded="none"
+                fontWeight="500"
+                letterSpacing="0.5px"
+                textTransform="uppercase"
+                fontSize="sm"
+                _hover={{ bg: "gray.100" }}
+                transition="all 0.2s"
+                w={{ base: "100%", sm: "auto" }}
+              >
+                Get In Touch
+              </Button>
             </Link>
-          </Button>
-        </WrapItem>
-      </Wrap>
-      </Stack>
-    </Flex>
+            <Link href="/newsletter">
+              <Button
+                variant="outline"
+                borderColor="white"
+                color="white"
+                size="lg"
+                px={8}
+                py={6}
+                rounded="none"
+                fontWeight="500"
+                letterSpacing="0.5px"
+                textTransform="uppercase"
+                fontSize="sm"
+                _hover={{ bg: "whiteAlpha.100" }}
+                transition="all 0.2s"
+                w={{ base: "100%", sm: "auto" }}
+              >
+                Newsletter
+              </Button>
+            </Link>
+          </Stack>
+        </Stack>
+      </Container>
+    </Box>
   );
 }
